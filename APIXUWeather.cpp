@@ -13,6 +13,7 @@ uint8_t APIXUWeather::updateWeather(APIXUWeatherCurrentData *data, APIXUWeatherF
 }
 
 uint8_t APIXUWeather::doUpdate(APIXUWeatherCurrentData *data, APIXUWeatherForecastData *data1, String url) {
+	if (WiFi.status() != WL_CONNECTED) return 0;
 	unsigned long lostTest = 30000UL;
 	unsigned long lost_do = millis();
 	this->currentForecast = 0;
